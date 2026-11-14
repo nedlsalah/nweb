@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  BRAND TOKENS (space-separated RGB so Tailwind opacity works).
+  Only --bg (#0d0d0f, your theme-color) is taken from your live site.
+  TODO: paste your exact values from the old css/style.css for the rest.
+*/
+:root {
+  --bg: 13 13 15;
+  --surface: 21 21 25;
+  --line: 44 44 50;
+  --fg: 244 242 238;
+  --muted: 154 154 162;
+  --accent: 232 228 220;
+  color-scheme: dark light;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: 247 246 243;
+    --surface: 255 255 255;
+    --line: 226 224 218;
+    --fg: 13 13 15;
+    --muted: 98 98 106;
+    --accent: 13 13 15;
+  }
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { @apply bg-bg text-fg font-sans antialiased; }
+:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 3px; }
+
+/* "Motion: Off" switch in the footer */
+[data-motion="off"] *, [data-motion="off"] *::before, [data-motion="off"] *::after {
+  animation: none !important; transition: none !important; scroll-behavior: auto !important;
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
