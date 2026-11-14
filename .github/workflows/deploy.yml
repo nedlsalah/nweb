@@ -27,7 +27,7 @@ jobs:
       - run: npm run build
         env:
           EXPORT: "1"
-          NEXT_PUBLIC_BASE_PATH: /Web
+          NEXT_PUBLIC_BASE_PATH: /nweb
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
